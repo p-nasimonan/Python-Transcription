@@ -13,15 +13,22 @@ class Window(tk.Frame):
         self.result = tk.StringVar(value="結果")
 
         self.master.geometry(size)
+        self.width, self.height = size.split('x')
         self.master.title(title)
     
     def createLabel(self, master, text:tk.StringVar):
         label = tk.Label(textvariable=text, font=('', 12))
         label.pack(pady=10)
+    
+    def createText(self, master):
+        self.text = tk.Text(master,width=self.width)
+        self.text.pack()
+
 
     def analys(self, files):
-        for file in files:
-            self.result.set(analysis.calc(file))
+        for i, file in enumerate(files):
+            result = analysis.calc(file)
+            self.text.insert('1.0', chars=result)
 
     def openfile(self):
         self.file_name = filedialog.askopenfilename(title="音声ファイル", filetypes=[("Audio file", " .wav .mp3 ")], multiple="true")

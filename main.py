@@ -8,8 +8,8 @@ from window import Window
 
 if __name__ == '__main__':
     root = tk.Tk()
-    App = Window(master=root, title="文字起こし", size="300x400")
+    App = Window(master=root, title="文字起こし", size="1000x400")
     App.createOpenFileButton(master=root)
     App.createLabel(master=root, text=App.file_name_tk)
-    App.createLabel(master=root,text=App.result)
+    App.createText(master=root)
     App.loop(master=root)
