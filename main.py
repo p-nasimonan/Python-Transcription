@@ -10,6 +10,6 @@ if __name__ == '__main__':
     root = tk.Tk()
     App = Window(master=root, title="文字起こし", size="300x400")
     App.createOpenFileButton(master=root)
-    App.createLabel(master=root, text=App.file_name)
+    App.createLabel(master=root, text=App.file_name_tk)
     App.createLabel(master=root,text=App.result)
     App.loop(master=root)
